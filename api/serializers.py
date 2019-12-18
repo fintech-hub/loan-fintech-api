@@ -90,7 +90,9 @@ class PaymentSerializer(serializers.ModelSerializer):
             )
 
         if loan.balance == 0:
-            raise serializers.ValidationError("Loan sold out")
+            raise serializers.ValidationError(
+                "Loan sold out"
+            )
 
         if payments:
             last_payment_date = payments.date.replace(
