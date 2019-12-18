@@ -15,6 +15,7 @@ djangorestframework = "*"
 dj-database-url = "*"
 whitenoise = "*"
 django-cors-headers = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.7"

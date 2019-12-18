@@ -4,6 +4,11 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from rest_framework.response import Response
 from rest_framework.generics import CreateAPIView, RetrieveAPIView
 
+from rest_framework import permissions
+
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
+
 from .models import Client, Loan, Payment
 from .serializers import ClientSerializer, PaymentSerializer, LoanSerializer, BalanceSerializer
 
@@ -55,3 +60,20 @@ class BalanceView(RetrieveAPIView):
 
 def test(request):
     return HttpResponse("Loan Fintech API")
+
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Loan Fintech API",
+        default_version="v1",
+        description="Loan Fintech API",
+        contact=openapi.Contact(
+            name="loan-fintech-api", url="https://github.com/leogregianin/loan-fintech-api"
+        ),
+        license=openapi.License(
+            name="MIT", url="https://github.com/leogregianin/loan-fintech-api/blob/master/LICENSE"
+        ),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)

@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'api',
+    'drf_yasg',
     'rest_framework',
 ]
 
@@ -96,3 +97,12 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 STATIC_URL = "/static/"
+
+# Swagger doc
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+}
