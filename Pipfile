@@ -12,7 +12,9 @@ pre-commit = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
-python-decouple = "*"
+dj-database-url = "*"
+whitenoise = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
