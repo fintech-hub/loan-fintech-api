@@ -14,6 +14,7 @@ pre-commit = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"
