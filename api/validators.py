@@ -68,8 +68,8 @@ def validate_phone(value):
 
     # two digits must be validated
     valid = False
-    for key, val in ddd_valid:
-        if value[:2] in val:
+    for key in ddd_valid:
+        if value[:2] in ddd_valid[key]:
             valid = True
             break
 
@@ -77,5 +77,5 @@ def validate_phone(value):
         raise ValidationError("A valid DDD telephone must be entered in #2")
 
     # Amount of digits
-    if not(re.match(r'\d{10}', value)) or not(re.match(r'\d{11}', value)):
+    if not(re.match(r'\d{10}', value)) and not(re.match(r'\d{11}', value)):
         raise ValidationError("A valid 10 or 11 digit telephone must be entered in #3")
