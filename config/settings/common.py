@@ -81,6 +81,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Internationalization
+
+# https://dzone.com/articles/a-quick-guide-to-django-i18n
+# django-admin makemessages -l pt_BR
+# django-admin compilemessages
+
+LOCALE_PATHS = (
+    '/locale/', )
+
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "UTC"
 USE_I18N = True
