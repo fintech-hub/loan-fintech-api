@@ -5,8 +5,6 @@ verify_ssl = true
 
 [dev-packages]
 flake8 = "*"
-pytest = "*"
-pytest-cov = "*"
 codecov = "*"
 black = "*"
 pre-commit = "*"
@@ -14,6 +12,9 @@ pre-commit = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
+dj-database-url = "*"
+whitenoise = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
