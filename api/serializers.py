@@ -39,7 +39,7 @@ class LoanSerializer(serializers.ModelSerializer):
 
             for loan in loans:
                 balance_all += loan.balance
-                payment = Payment.objects.filter(loan_id=loan.loan_id, payment="missed")
+                payment = Payment.objects.filter(loan_id=loan.loan_id, payment_choice="missed")
                 times_missed += len(payment)
 
             if balance_all != 0 or times_missed > 3:
@@ -84,7 +84,7 @@ class PaymentSerializer(serializers.ModelSerializer):
                 "The amount does not match the instalment"
             )
 
-        if (data["payment"] != "made" and data["payment"] != "missed"):
+        if (data["payment_choice"] != "made" and data["payment_choice"] != "missed"):
             raise serializers.ValidationError(
                 "A valid type must be entered in"
             )
@@ -99,15 +99,15 @@ class PaymentSerializer(serializers.ModelSerializer):
 
             if (
                 last_payment_date == current_payment_date
-                and payments.payment == "missed"
-                and data["payment"] == "made"
+                and payments.payment_choice == "missed"
+                and data["payment_choice"] == "made"
             ):
                 return data
 
             if (
                 last_payment_date == current_payment_date
-                and payments.payment == "made"
-                and data["payment"] == "missed"
+                and payments.payment_choice == "made"
+                and data["payment_choice"] == "missed"
             ):
                 raise serializers.ValidationError(
                     "Type of payment already made for the date"
@@ -115,7 +115,7 @@ class PaymentSerializer(serializers.ModelSerializer):
 
             if (
                 last_payment_date == current_payment_date
-                and payments.payment == data["payment"]
+                and payments.payment_choice == data["payment_choice"]
             ):
                 raise serializers.ValidationError(
                     "Type of payment already made for the date"
