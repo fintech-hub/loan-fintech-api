@@ -12,3 +12,5 @@ DATABASES = {
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
     }
 }
+
+SIMPLE_JWT['SIGNING_KEY']: SECRET_KEY

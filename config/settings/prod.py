@@ -14,3 +14,5 @@ DATABASES["default"].update(dj_database_url.config())
 MIDDLEWARE.insert(0, "whitenoise.middleware.WhiteNoiseMiddleware")
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+SIMPLE_JWT['SIGNING_KEY']: SECRET_KEY
