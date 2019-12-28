@@ -5,6 +5,7 @@ from datetime import timedelta
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 INSTALLED_APPS = [
+    'elasticapm.contrib.django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,32 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Elastic APM
+# https://www.elastic.co/pt/products/apm
+
+ELASTIC_APM = {
+  # Set required service name.
+  # Allowed characters:
+  # a-z, A-Z, 0-9, -, _, and space
+  'SERVICE_NAME': 'config',
+
+  # Use if APM Server requires a token
+  'SECRET_TOKEN': '',
+
+  # 'SERVICE_NAME': 'elastic',
+  # 'SECRET_TOKEN': '',
+
+  # debug
+  'DEBUG': True,
+
+  # Set custom APM Server URL (
+  # default: http://localhost:8200)
+  #
+  'SERVER_URL': 'http://localhost:8200',
+}
+
 MIDDLEWARE = [
+    "elasticapm.contrib.django.middleware.TracingMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -129,7 +155,9 @@ USE_L10N = True
 USE_TZ = True
 STATIC_URL = "/static/"
 
+
 # Swagger doc
+
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
         'basic': {

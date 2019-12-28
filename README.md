@@ -15,6 +15,11 @@ A fintech needs to keep track of the amount of money loaned and the missed/made 
 ## Limitations
 Loans are paid back in monthly installments.
 
+## Install
+
+
+
+
 ## Endpoints
 
 ### POST /clients/
