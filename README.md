@@ -17,7 +17,8 @@ Loans are paid back in monthly installments.
 
 ## Install
 
-
+### 
+python manage.py runserver --settings=config.settings.dev
 
 
 ## Endpoints
