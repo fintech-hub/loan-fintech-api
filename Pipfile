@@ -10,7 +10,7 @@ black = "*"
 pre-commit = "*"
 
 [packages]
-django = "*"
+django = "==3.2.11"
 djangorestframework = "*"
 dj-database-url = "*"
 whitenoise = "*"

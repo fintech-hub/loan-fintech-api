@@ -1,8 +1,5 @@
 # Loan Fintech API with Django REST Framework
  
-  ⚠️️️️ This is a work in progress. See [Issues](https://github.com/leogregianin/loan-fintech-api/issues) for more details.
-  
-
 ## Objective
 The main objective of this project is to create an API to manage the loan payments control system from a fintech.
 
@@ -17,11 +14,27 @@ Loans are paid back in monthly installments.
 
 ## Install
 
-### 
-python manage.py runserver --settings=config.settings.dev
+### Setup install
+* `pipenv install`
+
+### Running
+* `python manage.py makemigrations --settings=config.settings.dev`
+* `python manage.py migrate --settings=config.settings.dev`
+* `python manage.py runserver --settings=config.settings.dev`
 
 
 ## Endpoints
+
+* Documentatin: `/swagger/`
+* Admin: `/admin/`
+* Get JWT token: `/api/token/`
+* Refresh JWT token: `/api/token/refresh/`
+* All clients: `/clients/`
+* Client by id: `/client/{client_id}/`
+* All loans: `/loans/`
+* Balance by client id: `/loans/{loan_id}/balance/`
+* Payments by client id: `/loans/{loan_id}/payments/`
+
 
 ### POST /clients/
 
