@@ -17,7 +17,3 @@ whitenoise = "*"
 django-cors-headers = "*"
 drf-yasg = "*"
 djangorestframework-simplejwt = "*"
-elastic-apm = "*"
-
-[requires]
-python_version = "3.7"
