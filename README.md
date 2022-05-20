@@ -20,6 +20,7 @@ Loans are paid back in monthly installments.
 ### Running
 * `python manage.py makemigrations --settings=config.settings.dev`
 * `python manage.py migrate --settings=config.settings.dev`
+* `python manage.py test --settings=config.settings.dev`
 * `python manage.py runserver --settings=config.settings.dev`
 
 
